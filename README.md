@@ -2,6 +2,16 @@
 
 Bot Telegram dùng Gemini AI để trò chuyện đồng hành với người dùng, hướng tới đề tài
 đồ án về “những người cô đơn tìm kiếm niềm vui”.
+* Polling (Kiến trúc "Hỏi - Đáp")
+Cơ chế: Script/Server của bạn sẽ chủ động gọi lên Telegram sau mỗi khoảng thời gian (ví dụ: mỗi 1 phút) để hỏi: "Có tin nhắn mới nào không?"
+ Ưu điểm:
+ Không cần Server mở (No Public URL): Bạn không cần một địa chỉ IP tĩnh hay một URL công khai trên mạng. Bạn có thể chạy script ngay trên máy tính cá nhân, máy ảo đóng kín, hoặc GitHub Actions.
+ Kiểm soát được lưu lượng (Rate Limit): Bạn tự quyết định khi nào gọi API, tránh được tình trạng server bị sập khi người dùng nhắn tin dồn dập cùng một lúc.
+ Dễ setup ban đầu: Không cần cấu hình chứng chỉ SSL/HTTPS phức tạp hay cấu hình gateway.
+ Nhược điểm:
+ Có độ trễ (Latency): Tin nhắn không đến ngay lập tức. Nếu bạn cài cron job chạy mỗi 5 phút, người dùng có thể phải đợi tới 5 phút mới thấy bot trả lời.
+ Lãng phí tài nguyên: Hệ thống vẫn phải chạy và gọi API liên tục ngay cả khi không có ai nhắn tin cho Bot (gọi là "gọi rỗng").
+ Giới hạn thời gian chạy: Nếu dùng các nền tảng miễn phí như GitHub Actions, bạn sẽ bị giới hạn số phút chạy mỗi tháng.
 
 ## Nguyên tắc thiết kế quan trọng
 
