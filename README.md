@@ -1,4 +1,4 @@
-# Trợ lý AI đồng hành (Telegram Bot)
+# Trợ lý AI (Telegram Bot)
 
 Bot Telegram dùng Gemini AI để trò chuyện đồng hành với người dùng, hướng tới đề tài
 đồ án về “những người cô đơn tìm kiếm niềm vui”.
